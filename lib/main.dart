@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/app_button.dart';
 import 'package:untitled/awesome_toast_helper.dart';
+import 'package:untitled/stacked_carousal_widget.dart';
 
 void main() {
   runApp(const AwesomeToast());
@@ -19,14 +20,9 @@ class AwesomeToast extends StatelessWidget {
   }
 }
 
-class HomeView extends StatefulWidget {
+class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +30,7 @@ class _HomeViewState extends State<HomeView> {
         backgroundColor: Colors.grey,
         title: const Text("Flutter Awesome Toast"),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -80,7 +76,9 @@ class _HomeViewState extends State<HomeView> {
                 type: ToastType.error,
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 50),
+            /// for stacked carousal widget
+            const StackedCarousalWidget(),
           ],
         ),
       ),
